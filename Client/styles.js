@@ -48,4 +48,7 @@ module.exports = {
     fontSize: 18,
     color: 'white',
   },
+  map: {
+    flex: 1
+  }
 };
