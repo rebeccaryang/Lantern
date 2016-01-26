@@ -27,7 +27,7 @@ var Lantern = React.createClass({
   render: function(){
     return (
 
-      <MapView style={styles.map} showsUserLocation={true} annotations={[this.state.pin]} onAnnotationPress={this.onAnnotationPress} onRegionChangeComplete={this.onRegionChangeComplete}>
+      <MapView style={styles.map} showsUserLocation={true} followsUserLocation={true} annotations={[this.state.pin]} onAnnotationPress={this.onAnnotationPress} onRegionChangeComplete={this.onRegionChangeComplete}>
       </MapView>
     )     
   },
