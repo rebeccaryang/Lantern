@@ -3,40 +3,64 @@
 var React = require('react-native');
 var {
   AppRegistry,
+  MapView,
   StyleSheet,
-  Text,
   View,
-  Image,
-  MapView
 } = React;
 
-var Login = require('./Login');
-var Map = require('./map.js');
 
 /**
  * A sample app that demonstrates use of the FBSDK login button, native share dialog, and graph requests.
  */
+
+ // MapView delegates to the operating system
+
 var Lantern = React.createClass({
+  getInitialState: function(){
+    return {
+      pin:{
+        latitude: 0,
+        longitude: 0
+      }
+    }
+  },
   render: function(){
     return (
-      return <MapView style={styles.map}></MapView>
-    )
+
+      <MapView style={styles.map} showsUserLocation={true} annotations={[this.state.pin]} onAnnotationPress={this.onAnnotationPress} onRegionChangeComplete={this.onRegionChangeComplete}>
+      </MapView>
+    )     
+  },
+  onRegionChangeComplete: function(region){
+    // SETTING STATE ---------------------------------------------------------------------------
+    this.setState({
+      pin: {
+        longitude: region.longitude,
+        latitude: region.latitude
+      }
+    });
+  },
+  onAnnotationPress: function(region){
+    // GETTING AND SETTING STATE ---------------------------------------------------------------
+    console.log("Annotation pressed!")
+    console.log(this.state);
+    this.setState({
+      pin: {
+        longitude: region.longitude,
+        latitude: region.latitude,
+        title: 'STARTING POINT',
+        leftCalloutView: true,
+        // hasRightCallout: true,
+        animateDrop: true
+      }
+    }); 
   }
-  // render: function() {
-  //   return (
-  //     <Image
-  //       source={require('./plutoBack.png')}
-  //       style={styles.loginImage}>
-  //       <View style={styles.disclaimerContainer}>
-  //         <Text style={styles.disclaimerText}>Hey is this working</Text>
-  //       </View>
-  //       <Login style={styles.loginContainer}/>
-  //     </Image>
-  //   );
-  // }
 });
 
-// importing styles
-var styles = StyleSheet.create(require('./styles.js'));
+var styles = StyleSheet.create({
+  map:{
+    flex: 1
+  }
+});
 
 AppRegistry.registerComponent('Lantern', () => Lantern);
