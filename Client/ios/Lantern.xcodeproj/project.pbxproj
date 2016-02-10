@@ -50,7 +50,6 @@
 		9D87243E1C69282A0044FA1B /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D87243D1C69282A0044FA1B /* libsqlite3.tbd */; };
 		9D8724401C6928380044FA1B /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D87243F1C6928380044FA1B /* libstdc++.tbd */; };
 		CABD334E1C6BBF2C00E3CE0E /* HelveticaNeue.dfont in Resources */ = {isa = PBXBuildFile; fileRef = CABD33401C6BBE8500E3CE0E /* HelveticaNeue.dfont */; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
