@@ -34,7 +34,7 @@ module.exports = React.createClass({
     } else if (timeRemaining < 0) {
       minutes = -1*Math.ceil(timeRemaining.asMinutes())
       seconds = -1*timeRemaining.seconds()
-      if(seconds < 10 && seconds > 0){
+      if(seconds < 10 && seconds >= 0){
         seconds = '0' + seconds;
       }
       return '-' + minutes + ':' + seconds
